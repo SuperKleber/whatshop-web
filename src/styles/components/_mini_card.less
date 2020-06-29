@@ -1,0 +1,25 @@
+.MiniCard {
+  width: 200px;
+  height: 200px;
+  // background: @gray-light;
+  background: #2a2f36;
+  box-shadow: 8px 8px 16px #24282e, -8px -8px 16px #30363e;
+  border-radius: @radius;
+  padding: @size-4;
+  .flex(@fd: column);
+  .MiniCardIconContainer {
+    width: 100%;
+    .flex();
+    .MiniCardIcon {
+      .size(100px);
+    }
+  }
+  .MiniCardContent {
+    // .flex(@fd: column);
+    text-align: center;
+    .title {
+      .title();
+      margin-bottom: @size-4;
+    }
+  }
+}

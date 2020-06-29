@@ -1,0 +1,165 @@
+//#Pixel Colors Fill
+// ##PixelWhite
+@pixel-white-cls-1: #00d8be;
+@pixel-white-cls-2: #00ffec;
+@pixel-white-cls-3: #00edd6;
+@pixel-white-cls-4: #d6d6d6;
+@pixel-white-cls-5: #fff;
+@pixel-white-cls-6: #efefef;
+@pixel-white-cls-7: #2d2525;
+// ##Pixel-Dark
+@pixel-dark-cls-1: #00d8be;
+@pixel-dark-cls-2: #00ffec;
+@pixel-dark-cls-3: #00edd6;
+@pixel-dark-cls-4: #424242;
+@pixel-dark-cls-5: #545454;
+@pixel-dark-cls-6: #5b5b5b;
+@pixel-dark-cls-7: #fff;
+
+.pixelWhite {
+  & .cls-1 {
+    fill: @pixel-white-cls-1;
+  }
+  & .cls-2 {
+    fill: @pixel-white-cls-2;
+  }
+  & .cls-3 {
+    fill: @pixel-white-cls-3;
+  }
+  & .cls-4 {
+    fill: @pixel-white-cls-4;
+  }
+  & .cls-5 {
+    fill: @pixel-white-cls-5;
+  }
+  & .cls-6 {
+    fill: @pixel-white-cls-6;
+  }
+  & .cls-7 {
+    fill: @pixel-white-cls-7;
+  }
+}
+.pixelDark {
+  & .cls-1 {
+    fill: @pixel-dark-cls-1;
+  }
+  & .cls-2 {
+    fill: @pixel-dark-cls-2;
+  }
+  & .cls-3 {
+    fill: @pixel-dark-cls-3;
+  }
+  & .cls-4 {
+    fill: @pixel-dark-cls-4;
+  }
+  & .cls-5 {
+    fill: @pixel-dark-cls-5;
+  }
+  & .cls-6 {
+    fill: @pixel-dark-cls-6;
+  }
+  & .cls-7 {
+    fill: @pixel-dark-cls-7;
+  }
+}
+// END pixel Colors Fill
+
+// Flex
+
+.flex(@fd: row ,@jc: center, @ai: center ) {
+  display: flex;
+  flex-direction: @fd;
+  justify-content: @jc;
+  align-items: @ai;
+}
+.btn(@background:transparent,@color: @white, @border-color: transparent) {
+  outline: none;
+  text-transform: uppercase;
+  font-family: @font;
+  font-weight: 600;
+  margin: 0;
+  border: none;
+  background: none;
+  padding: 0;
+  padding: @size-3;
+  cursor: pointer;
+  border-radius: @radius;
+  color: @color;
+  transition: 0.2s;
+  background: @background;
+  border: @size-1 solid @border-color;
+  .flex();
+  &:hover {
+    opacity: @opacity;
+  }
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+// Samples
+.d-none {
+  display: none !important;
+}
+
+//Modal
+
+.allBody() {
+  .fullAbsolute();
+  width: 100vw;
+  height: 100vh;
+}
+
+//Border
+
+.border(@color: @turquesa) {
+  border: 2px solid @color;
+}
+.fullAbsolute {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+.viewPort() {
+  min-height: 100vh;
+  width: 100vw;
+  .flex(@fd: column);
+}
+.size(@size) {
+  width: @size;
+  height: @size;
+}
+.title() {
+  position: relative;
+  width: max-content;
+  display: inline-block;
+  z-index: 2 !important;
+  &::before {
+    content: " ";
+    position: absolute;
+    display: flex;
+    width: 50px;
+    height: 10px;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background: @turquesa_contrast;
+    border-radius: @radius;
+  }
+  &::after {
+    content: " ";
+    position: absolute;
+    display: flex;
+    width: 50px;
+    height: 10px;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    background: @red;
+    border-radius: @radius;
+  }
+}

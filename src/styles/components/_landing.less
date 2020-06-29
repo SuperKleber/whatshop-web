@@ -1,0 +1,56 @@
+.WhatsappShop {
+  .View {
+    .viewPort();
+    .videoContainer {
+      .flex(@fd:column);
+      background: linear-gradient(145deg, #262a31, #2d323a);
+      box-shadow: 8px 8px 8px #23272d, -8px -8px 8px #31373f;
+      padding: 0 0 @size-4 0;
+      border-radius: @radius;
+      .youtubeDemo {
+        min-width: 300px;
+        min-height: 300px;
+        width: 30vw;
+        height: 30vw;
+        border-radius: @radius;
+      }
+    }
+    .Title {
+      margin-bottom: @size-3;
+    }
+    .CTA {
+      .flex(@fd: column);
+      width: 300px;
+      .cta {
+        margin: @size-3 0;
+      }
+    }
+  }
+  .Info {
+    .viewPort();
+    .Price {
+      padding: @size-3;
+      width: 285px;
+      border-radius: @radius;
+      background: linear-gradient(to right, @turquesa 50%, @red 50%);
+      .text {
+        background: @gray;
+        padding: @size-3;
+        border-radius: @radius;
+        text-align: center;
+      }
+    }
+    .Interest {
+      .flex();
+      flex-wrap: wrap;
+    }
+    .CTA {
+      .flex(@fd: column);
+      width: 300px;
+      .cta {
+        margin: @size-3 0;
+      }
+      margin-bottom: @size-5;
+    }
+  }
+}

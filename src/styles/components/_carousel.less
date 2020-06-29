@@ -1,0 +1,57 @@
+.Carousel {
+  .flex(@fd: column);
+
+  //   height: 100%;
+  .Slides {
+    .flex();
+
+    .Slide {
+      animation: opa 0.8s;
+      @keyframes opa {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      .flex(@fd: column);
+      // width: 100%;
+      cursor: grab;
+      &:active {
+        cursor: grabbing;
+      }
+      .text {
+        text-align: center;
+        margin-top: @size-5;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -ms-user-select: none;
+        .title {
+          margin-bottom: @size-3;
+          .title();
+        }
+      }
+      .img {
+        //   width: inherit;
+        height: 200px;
+        z-index: 1 !important;
+      }
+    }
+  }
+  .Steps {
+    margin-top: @size-5;
+    width: 100%;
+    .flex(@jc: space-around);
+    .step {
+      cursor: pointer;
+      height: 15px;
+      border-radius: @radius;
+      background: @turquesa_contrast;
+    }
+    .step.select {
+      background: @turquesa;
+    }
+  }
+}
