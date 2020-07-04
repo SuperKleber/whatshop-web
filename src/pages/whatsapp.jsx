@@ -4,12 +4,10 @@ import ReactPixel from "react-facebook-pixel";
 // import CircularProgress from "@material-ui/core/CircularProgress";
 // import { Container, Box, Typography } from "@material-ui/core";
 const Whatsapp = ({ location }) => {
-  const url = new URL(location.href);
-  const message = url.searchParams.get("message") || "";
-
-  //   const message = "Hola, vi su anuncio, quiero más infomación.";
-  const messageWhatsapp = message.replace(/ /gi, "%20");
   useEffect(() => {
+    const url = new URL(location.href);
+    const message = url.searchParams.get("message") || "";
+    const messageWhatsapp = message.replace(/ /gi, "%20");
     ReactPixel.track("Contact", {
       type: "whatsapp",
     });
