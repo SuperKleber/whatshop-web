@@ -18,26 +18,6 @@ const registro = () => {
         >
           Cargando…
         </iframe>
-        <div className="flex-column-between" style={{ margin: "16px 0" }}>
-          <h2>
-            Únete a <strong> La Resitencia Digital</strong>
-          </h2>
-          <br />
-          <a
-            target="_blank"
-            href="https://www.facebook.com/groups/397398570964580"
-          >
-            <button className="btn-secondary-turquesa">
-              Grupo de Facebook
-            </button>
-          </a>
-          <br />
-          <a target="_blank" href="https://discord.gg/KkQGWF">
-            <button className="btn-secondary-turquesa">
-              Server de Discord
-            </button>
-          </a>
-        </div>
       </div>
     </Layout>
   );
