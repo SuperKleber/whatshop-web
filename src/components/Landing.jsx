@@ -247,7 +247,7 @@ const Landing = () => {
             onClick={() => {
               ReactPixel.track("ViewContent", { content_name: "demoExample" });
             }}
-            href="https://whatsapp-shop.netlify.app/"
+            href="https://whatshop-muestra.netlify.app/"
           >
             <button className=" btn-secondary full-width">
               Demo ejemplo de un WhatShop
