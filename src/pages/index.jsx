@@ -4,7 +4,7 @@ import Landing from "../components/Landing";
 
 const Index = () => {
   return (
-    <Layout className="WhatsappShop">
+    <Layout className="WhatsappShop" jivochat>
       <Landing></Landing>
     </Layout>
   );

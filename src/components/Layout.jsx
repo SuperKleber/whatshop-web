@@ -4,7 +4,7 @@ import Helmet from "react-helmet";
 import ReactPixel from "react-facebook-pixel";
 import Seo from "./Seo";
 
-const Layout = ({ children, className }) => {
+const Layout = ({ children, className, jivochat }) => {
   useEffect(() => {
     ReactPixel.init("872956439898893");
     ReactPixel.pageView();
@@ -98,8 +98,9 @@ const Layout = ({ children, className }) => {
           content="favicon/ms-icon-144x144.png"
         />
         <meta name="theme-color" content="#ffffff" />
-
-        <script src="//code.jivosite.com/widget/UrnZHwfJe0" async></script>
+        {jivochat && (
+          <script src="//code.jivosite.com/widget/UrnZHwfJe0" async></script>
+        )}
       </Helmet>
       <div>{children}</div>
     </div>
