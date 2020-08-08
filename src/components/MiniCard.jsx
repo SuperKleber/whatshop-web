@@ -5,10 +5,15 @@ const MiniCard = ({ children, icon: Icon, img, title, description, color }) => {
     <div className="MiniCard">
       <div className="MiniCardIconContainer">
         {/* <img src={cardMedia} alt={`imagen de ${title}`} /> */}
-        <Icon
-          className="MiniCardIcon"
-          style={{ fill: `${color} !important`, color: `${color} !important` }}
-        />
+        {Icon && (
+          <Icon
+            className="MiniCardIcon"
+            style={{
+              fill: `${color} !important`,
+              color: `${color} !important`,
+            }}
+          />
+        )}
       </div>
       <div className="MiniCardContent">
         <h3 className="title">{title}</h3>
