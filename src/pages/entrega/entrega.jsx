@@ -16,7 +16,13 @@ const Entrega = ({ location }) => {
     setData(urlData);
   }, []);
   return (
-    <Layout className="Entrega">
+    <Layout
+      className="Entrega"
+      seo={{
+        title: `Bienvenido ${data.negocio}`,
+        description: `Instrucciones para ingresar a su tienda online WhatShop`,
+      }}
+    >
       <div className="View">
         <MiniCard title={`Bienvenido ${data.nombre}`}>
           {/* <h1>Bienvenido {data.nombre} </h1> */}

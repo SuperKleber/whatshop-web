@@ -7,10 +7,10 @@ import {
   siteLanguage,
   siteImage,
 } from "../../config/seo.json";
-const Seo = () => {
+const Seo = ({ title }) => {
   return (
     <Helmet>
-      <title>{siteTitle}</title>
+      <title>{title ? title : siteTitle}</title>
       <meta http-equiv="content-language" content={siteLanguage}></meta>
       <meta name="language" content="Spanish"></meta>
       <meta name="description" content={siteDescription} />

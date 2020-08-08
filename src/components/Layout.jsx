@@ -4,14 +4,14 @@ import Helmet from "react-helmet";
 import ReactPixel from "react-facebook-pixel";
 import Seo from "./Seo";
 
-const Layout = ({ children, className, jivochat }) => {
+const Layout = ({ children, className, jivochat, seo }) => {
   useEffect(() => {
     ReactPixel.init("872956439898893");
     ReactPixel.pageView();
   }, []);
   return (
     <div className={`Layout ${className && className}`}>
-      <Seo />
+      <Seo {...seo} />
       <Helmet>
         <link
           href="https://fonts.googleapis.com/css?family=Montserrat|Righteous|Ubuntu+Mono&display=swap"
