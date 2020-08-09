@@ -3,18 +3,21 @@ import Layout from "../../components/Layout";
 import MiniCard from "../../components/MiniCard";
 import { Link } from "gatsby";
 const Entrega = ({ location }) => {
-  const [data, setData] = useState({});
-  useEffect(() => {
-    const url = new URL(location.href);
-    const urlData = {};
+  let url;
+  const urlData = {};
+  try {
+    url = new URL(location.href);
     urlData.tienda = url.searchParams.get("tienda") || "";
     urlData.negocio = url.searchParams.get("negocio") || "";
     urlData.nombre = url.searchParams.get("nombre") || "";
     urlData.fecha = url.searchParams.get("fecha") || "";
     urlData.admin = url.searchParams.get("admin") || "";
     urlData.email = url.searchParams.get("email") || "";
-    setData(urlData);
-  }, []);
+  } catch (error) {}
+  const [data, setData] = useState(urlData);
+
+  // useEffect(() => {
+  // }, []);
   return (
     <Layout
       className="Entrega"
