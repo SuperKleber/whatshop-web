@@ -192,7 +192,7 @@ const Landing = () => {
         <div className="Price">
           <div className="text">
             <h2>97Bs por mes</h2>
-            <h5>+ 250Bs pago único instalación</h5>
+            <h5>347Bs primer mes (única vez por instalación)</h5>
           </div>
         </div>
         <div className="CTA">
@@ -229,7 +229,7 @@ const Landing = () => {
         <div className="Price">
           <div className="text">
             <h2>97Bs por mes</h2>
-            <h5>+ 250Bs pago único instalación</h5>
+            <h5>347Bs primer mes (única vez por instalación)</h5>
           </div>
         </div>
         <div className="CTA">
