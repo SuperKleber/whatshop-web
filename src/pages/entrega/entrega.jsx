@@ -3,21 +3,22 @@ import Layout from "../../components/Layout";
 import MiniCard from "../../components/MiniCard";
 import { Link } from "gatsby";
 const Entrega = ({ location }) => {
-  let url;
-  const urlData = {};
-  try {
-    url = new URL(location.href);
-    urlData.tienda = url.searchParams.get("tienda") || "";
-    urlData.negocio = url.searchParams.get("negocio") || "";
-    urlData.nombre = url.searchParams.get("nombre") || "";
-    urlData.fecha = url.searchParams.get("fecha") || "";
-    urlData.admin = url.searchParams.get("admin") || "";
-    urlData.email = url.searchParams.get("email") || "";
-  } catch (error) {}
-  const [data, setData] = useState(urlData);
+  const [data, setData] = useState({});
 
-  // useEffect(() => {
-  // }, []);
+  useEffect(() => {
+    let url;
+    let urlData = {};
+    try {
+      url = new URL(location.href);
+      urlData.tienda = url.searchParams.get("tienda") || "/";
+      urlData.negocio = url.searchParams.get("negocio") || "";
+      urlData.nombre = url.searchParams.get("nombre") || "";
+      urlData.fecha = url.searchParams.get("fecha") || "";
+      urlData.admin = url.searchParams.get("admin") || "/";
+      urlData.email = url.searchParams.get("email") || "";
+      setData(urlData);
+    } catch (error) {}
+  }, []);
   return (
     <Layout
       className="Entrega"
@@ -55,6 +56,40 @@ const Entrega = ({ location }) => {
             <br />
             <h4>Enviamos la invitación de acceso a este correo</h4>
             <h5 className="link">{data.email}</h5>
+          </MiniCard>
+          <br />
+          <MiniCard title="Tutoriales">
+            <p>Podrás ver los tutoriales del administrador aquí</p>
+            <br />
+            <iframe
+              className="iframe"
+              src="https://www.youtube.com/embed/videoseries?list=PLyVV7u9b35Kk6RR4xzYr3J1WnNiCr5yUL"
+              frameBorder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+            <br />
+            <br />
+            <a
+              href="https://www.youtube.com/playlist?list=PLyVV7u9b35Kk6RR4xzYr3J1WnNiCr5yUL"
+              target="_blank"
+              className="btn"
+            >
+              Ver en Youtube
+            </a>
+          </MiniCard>
+          <br />
+          <MiniCard title="Grupo Whatsapp">
+            <p>Únete al grupo de Whatsapp para recibir noticias</p>
+            <br />
+
+            <a
+              href="https://chat.whatsapp.com/JJoASbeKsgYCgwqtWn8TyO"
+              target="_blank"
+              className="btn"
+            >
+              Unirse a WhatShop Noticias
+            </a>
           </MiniCard>
           <br />
           <MiniCard title="Tutoriales">

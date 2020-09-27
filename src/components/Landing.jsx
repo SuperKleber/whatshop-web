@@ -191,8 +191,8 @@ const Landing = () => {
       <div className="Info" id="info" ref={info}>
         <div className="Price">
           <div className="text">
-            <h2>97Bs por mes</h2>
-            <h5>347Bs primer mes (única vez por instalación)</h5>
+            <h2>141$USD único pago</h2>
+            <h5>Sin mensualidades (permanente)</h5>
           </div>
         </div>
         <div className="CTA">
@@ -228,8 +228,8 @@ const Landing = () => {
         </div>
         <div className="Price">
           <div className="text">
-            <h2>97Bs por mes</h2>
-            <h5>347Bs primer mes (única vez por instalación)</h5>
+            <h2>141$USD único pago</h2>
+            <h5>Sin mensualidades (permanente)</h5>
           </div>
         </div>
         <div className="CTA">

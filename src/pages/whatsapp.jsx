@@ -13,7 +13,7 @@ const Whatsapp = ({ location }) => {
     });
     setTimeout(() => {
       if (typeof window !== "undefined") {
-        window.location.href = `https://api.whatsapp.com/send?phone=59174188223&text=${messageWhatsapp}`;
+        window.location.href = `https://api.whatsapp.com/send?phone=59175591674&text=${messageWhatsapp}`;
       }
     }, 300);
   }, []);
