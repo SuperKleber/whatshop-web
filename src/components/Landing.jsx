@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Carousel from "../components/Carousel";
 import MiniCard from "../components/MiniCard";
 import ReactPixel from "react-facebook-pixel";
@@ -7,7 +7,8 @@ import { FiLoader } from "react-icons/fi";
 import { MdWeb } from "react-icons/md";
 import { GoPrimitiveDot } from "react-icons/go";
 import { GiPayMoney, GiHeartBottle } from "react-icons/gi";
-
+import publicIp from "public-ip";
+import axios from "axios";
 import {
   AiOutlineRise,
   AiOutlineCodeSandbox,
@@ -128,6 +129,22 @@ const Landing = () => {
 
   const how = useRef(null);
   const info = useRef(null);
+  const [countryCode, setCountryCode] = useState(false);
+  useEffect(() => {
+    // const a = async () => {
+    //   let geo = geoIpCountry.lookup(await publicIp.v4());
+    //   console.log(await geo);
+    // };
+    axios
+      .get("https://ipapi.co/json/")
+      .then((response) => {
+        let data = response.data;
+        setCountryCode(data.country_code);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
   return (
     <div>
       <div className="View">
@@ -189,34 +206,8 @@ const Landing = () => {
         </div>
       </div>
       <div className="Info" id="info" ref={info}>
-        <div className="Price">
-          <div className="text">
-            <h2>141$USD único pago</h2>
-            <h5>Sin mensualidades (permanente)</h5>
-          </div>
-        </div>
-        <div className="CTA">
-          {/* <Link to="/contacto" className="full-width">
-            <button className="cta btn-primary full-width">¡Lo quiero!</button>
-          </Link> */}
-          <FormWhatsapp
-            classNameButton="cta btn-primary full-width"
-            text="Quiero que me expliquen"
-          />
-
-          <a
-            target="_blank"
-            className="full-width"
-            onClick={() => {
-              ReactPixel.track("ViewContent", { content_name: "demoExample" });
-            }}
-            href="https://whatshop-muestra.netlify.app/"
-          >
-            <button className=" btn-secondary full-width">
-              Demo ejemplo de un WhatShop
-            </button>
-          </a>
-        </div>
+        {/* <PriceAndCta /> */}
+        <PriceAndCta countryCode={countryCode} />
         <div className="Interest">
           {allPlus.map((data, i) => {
             return (
@@ -226,36 +217,96 @@ const Landing = () => {
             );
           })}
         </div>
-        <div className="Price">
-          <div className="text">
-            <h2>141$USD único pago</h2>
-            <h5>Sin mensualidades (permanente)</h5>
-          </div>
-        </div>
-        <div className="CTA">
-          {/* <Link to="/contacto" className="full-width">
-            <button className="cta btn-primary full-width">¡Lo quiero!</button>
-          </Link> */}
-          <FormWhatsapp
-            classNameButton="cta btn-primary full-width"
-            text="Quiero que me expliquen"
-          />
-
-          <a
-            target="_blank"
-            className="full-width"
-            onClick={() => {
-              ReactPixel.track("ViewContent", { content_name: "demoExample" });
-            }}
-            href="https://whatshop-muestra.netlify.app/"
-          >
-            <button className=" btn-secondary full-width">
-              Demo ejemplo de un WhatShop
-            </button>
-          </a>
-        </div>
+        <PriceAndCta countryCode={countryCode} />
       </div>
     </div>
+  );
+};
+
+const PriceAndCta = ({ countryCode }) => {
+  let planes = [
+    {
+      title: "Plan anual",
+      price: "97$USD / año",
+      img: "",
+      list: ["something"],
+    },
+    {
+      title: "Plan permanente",
+      price: "141$USD",
+      img: "",
+      list: ["something"],
+    },
+  ];
+  if (countryCode == "BO") {
+    planes = [
+      {
+        title: "Plan mensual",
+        price: "77Bs / mes",
+        img: "",
+        list: ["something"],
+      },
+      {
+        title: "Plan anual",
+        price: "679Bs / año",
+        img: "",
+        list: ["something"],
+      },
+      {
+        title: "Plan permanente",
+        price: "987Bs",
+        img: "",
+        list: ["something"],
+      },
+    ];
+  }
+  return (
+    <>
+      <div className="planes">
+        {planes.map(({ title, price, img, list }, i) => {
+          return (
+            <div className="plan" key={i}>
+              <div className="container">
+                <div className="title">{title}</div>
+
+                <div className="price">{price}</div>
+                {/* <div className="imgContainer">
+                <img src={img} alt={title} className="img" />
+                </div>
+              <ul className="list">
+              <li className="item"></li>
+            </ul> */}
+                {/* <div className="cta">
+                <FormWhatsapp
+                  classNameButton="cta btn-primary full-width"
+                  text={`Quiero que me expliquen`}
+                />
+              </div> */}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      <div className="CTA">
+        <FormWhatsapp
+          classNameButton="cta btn-primary full-width"
+          text={`Quiero que me expliquen`}
+        />
+        <a
+          target="_blank"
+          className="full-width"
+          onClick={() => {
+            ReactPixel.track("ViewContent", { content_name: "demoExample" });
+          }}
+          href="https://whatshop-muestra.netlify.app/"
+        >
+          <button className=" btn-secondary full-width">
+            Demo ejemplo de un WhatShop
+          </button>
+        </a>
+      </div>
+    </>
   );
 };
 

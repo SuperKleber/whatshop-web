@@ -28,5 +28,18 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     "gatsby-plugin-robots-txt",
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `WhatShop.digital`,
+        short_name: `WhatShop`,
+        start_url: `/`,
+        background_color: `#2a2f36`,
+        theme_color: `#00ffec`,
+        display: `standalone`,
+        icon: `static/favicon/favicon.png`,
+      },
+    },
+    "gatsby-plugin-offline",
   ],
 };

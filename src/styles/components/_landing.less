@@ -28,16 +28,25 @@
   }
   .Info {
     .viewPort();
-    .Price {
-      padding: @size-3;
-      width: 285px;
-      border-radius: @radius;
-      background: linear-gradient(to right, @turquesa 50%, @red 50%);
-      .text {
-        background: @gray;
+    .planes {
+      .flex();
+      flex-wrap: wrap;
+      .plan {
         padding: @size-3;
+        width: 285px;
         border-radius: @radius;
-        text-align: center;
+        background: linear-gradient(to right, @turquesa 50%, @red 50%);
+        margin: @size;
+        .container {
+          background: @gray;
+          padding: @size-3;
+          border-radius: @radius;
+          text-align: center;
+          .price {
+            font-size: 1.2em;
+            font-weight: bold;
+          }
+        }
       }
     }
     .Interest {
