@@ -2,11 +2,12 @@ import React, { useState, useRef, useEffect } from "react";
 import Carousel from "../components/Carousel";
 import MiniCard from "../components/MiniCard";
 import ReactPixel from "react-facebook-pixel";
-import { FaWhatsapp, FaPeopleCarry } from "react-icons/fa";
+import { FaWhatsapp, FaPeopleCarry, FaAndroid } from "react-icons/fa";
 import { FiLoader } from "react-icons/fi";
 import { MdWeb } from "react-icons/md";
 import { GoPrimitiveDot } from "react-icons/go";
 import { GiPayMoney, GiHeartBottle } from "react-icons/gi";
+
 import publicIp from "public-ip";
 import axios from "axios";
 import {
@@ -14,6 +15,7 @@ import {
   AiOutlineCodeSandbox,
   AiOutlineFieldTime,
 } from "react-icons/ai";
+import { BsFileEarmarkSpreadsheet } from "react-icons/bs";
 import { MdSettings } from "react-icons/md";
 import { RiFacebookCircleLine } from "react-icons/ri";
 import { Link } from "gatsby";
@@ -45,21 +47,28 @@ const Landing = () => {
       icon: GoPrimitiveDot,
       title: "Simple y al grano",
       description:
-        "Tus clientes quieren comprar y tu quieres vender, la mayoría de tiendas online dan rodeos y tienen elementos innecesarios",
+        "Tus clientes quieren comprar y tu quieres vender, la mayoría de tiendas online dan rodeos y tienen elementos innecesarios, WhatShop va al grano.",
     },
     {
       icon: MdWeb,
       color: "#4285f4",
       title: "Tu propio sitio web",
       description:
-        "Es tu propia tienda online individual y privada, tendrás tu propio dominio (www.ejemplo.com)",
+        "Es tu propia tienda online individual y privada, no es una plataforma donde hay varios negocios, es una plataforma dedicada unicamente para tu negocio con tu logo y nombre",
     },
     {
       icon: FaWhatsapp,
       color: "#25d366",
       title: "Simple Whatsapp",
       description:
-        "Deja los sistemas complicados, whatsapp es la forma más sencilla de comunicarse con los clientes",
+        "Deja los sistemas complicados, whatsapp es la forma más sencilla de comunicarse con los clientes, whatShop permite que los pedidos te llegan al whatsapp",
+    },
+    {
+      icon: FaAndroid,
+      color: "#25d366",
+      title: "App Progresiva PWA",
+      description:
+        "WhatShop también te permite tener tu propia aplicación móvil",
     },
     {
       icon: AiOutlineCodeSandbox,
@@ -70,7 +79,7 @@ const Landing = () => {
       icon: FiLoader,
       title: "Sitio web veloz",
       description:
-        "La mayoría de sitios web cargan lento, tenemos el mejor puntaje de velocidad 100/100 según Google Page Insights",
+        "La mayoría de sitios web cargan lento, WhatShop es instantáneo y permite una navegación cómoda",
     },
     {
       icon: GiPayMoney,
@@ -89,20 +98,20 @@ const Landing = () => {
       icon: AiOutlineRise,
       title: "Escalable",
       description:
-        "La cuota mensual incluye mejora constante de su sitio web, es decir cada vez tendrá aún más beneficios",
+        "Otros servicios ofrecen una tienda online que nunca más será actualizada, WhatShop cada vez tiene más beneficios y al mismo precio",
     },
     {
       icon: MdSettings,
       color: "#ffffff",
       title: "Soporte técnico",
-      description: "La cuota mensual incluye soporte técnico de bugs",
+      description: "Soporte técnico de bugs y asesoría",
     },
     {
-      icon: GiHeartBottle,
+      icon: BsFileEarmarkSpreadsheet,
       color: "#ffffff",
-      title: "Contenido exclusivo",
+      title: "Conecta Google Sheet",
       description:
-        "Recibe consejos mensuales sobre cómo vender mejor por internet ",
+        "Todos tus pedidos se registrarán automáticamente en una hoja de Google Sheet (excel)",
     },
     {
       icon: RiFacebookCircleLine,
@@ -113,9 +122,9 @@ const Landing = () => {
     {
       icon: FaPeopleCarry,
       color: "#ffffff",
-      title: "Marketing Grupal",
+      title: "Multi Líneas Whatsapp",
       description:
-        "Acceso a pixel de facebook global de todos los usuarios de whatsapp Shop. (opcional, no compartiremos tus datos sin tu perimiso)",
+        "Con WhatShop una misma tienda online puede recibir pedidos a distintos números de whatsapp, muy útil para negocios con varios vendedores",
     },
   ];
   const seo = {
@@ -226,56 +235,99 @@ const Landing = () => {
 const PriceAndCta = ({ countryCode }) => {
   let planes = [
     {
+      title: "Plan mensual",
+      price: "14$USD / mes",
+      img: "/img/luna.png",
+      list: [
+        "Sin límite de productos",
+        "Tienda online + PWA (aplicación móvil)",
+        "Actualizaciones y mejoras constantes",
+        "Hasta 2 líneas de Whatsapp",
+        "Dominio gratuito .netlify.app",
+      ],
+    },
+    {
       title: "Plan anual",
-      price: "97$USD / año",
-      img: "",
-      list: ["something"],
+      price: "125$USD / año",
+      img: "/img/asteroide.png",
+      list: [
+        "Todo lo del plan mensual",
+        "Dominio .com .net .org etc (por un año)",
+        "Hasta 5 líneas de Whatsapp",
+      ],
     },
     {
       title: "Plan permanente",
-      price: "141$USD",
-      img: "",
-      list: ["something"],
+      price: "187$USD",
+      img: "/img/sol.png",
+      list: [
+        "Todo lo del plan anual",
+        "Líneas de Whatsapp Ilimitadas",
+        "Incluyen las actualizaciones y soporte técnico",
+      ],
     },
   ];
   if (countryCode == "BO") {
     planes = [
       {
         title: "Plan mensual",
-        price: "77Bs / mes",
-        img: "",
-        list: ["something"],
+        price: "97Bs / mes",
+        img: "/img/luna.png",
+        list: [
+          "Sin límite de productos",
+          "Tienda online + PWA (aplicación móvil)",
+          "Actualizaciones y mejoras constantes",
+          "Hasta 2 líneas de Whatsapp",
+          "Dominio gratuito .netlify.app",
+        ],
       },
       {
         title: "Plan anual",
-        price: "679Bs / año",
-        img: "",
-        list: ["something"],
+        price: "873Bs / año",
+        tag: "Ahorra 25%",
+        img: "/img/asteroide.png",
+        list: [
+          "Todo lo del plan mensual",
+          "Dominio .com .net .org etc (por un año)",
+          "Hasta 5 líneas de Whatsapp",
+        ],
       },
       {
         title: "Plan permanente",
-        price: "987Bs",
-        img: "",
-        list: ["something"],
+        price: "1309Bs",
+        tag: "sin mensualidades",
+        img: "/img/sol.png",
+        list: [
+          "Todo lo del plan anual",
+          "Líneas de Whatsapp Ilimitadas",
+          "Incluyen las actualizaciones y soporte técnico",
+        ],
       },
     ];
   }
   return (
     <>
       <div className="planes">
-        {planes.map(({ title, price, img, list }, i) => {
+        {planes.map(({ title, price, img, list, tag }, i) => {
           return (
             <div className="plan" key={i}>
               <div className="container">
                 <div className="title">{title}</div>
 
                 <div className="price">{price}</div>
-                {/* <div className="imgContainer">
-                <img src={img} alt={title} className="img" />
+                <div className="imgContainer">
+                  <img src={img} alt={title} className="img" />
                 </div>
-              <ul className="list">
-              <li className="item"></li>
-            </ul> */}
+                <ul className="list">
+                  {list.map((item, i) => {
+                    return (
+                      <li className="item" key={i}>
+                        {item}
+                      </li>
+                    );
+                  })}
+                </ul>
+                {tag && <div className="tag">{tag}</div>}
                 {/* <div className="cta">
                 <FormWhatsapp
                   classNameButton="cta btn-primary full-width"

@@ -31,20 +31,55 @@
     .planes {
       .flex();
       flex-wrap: wrap;
+      align-items: flex-start;
       .plan {
         padding: @size-3;
         width: 285px;
         border-radius: @radius;
         background: linear-gradient(to right, @turquesa 50%, @red 50%);
         margin: @size;
+        height: 415px;
         .container {
+          // height: 100%;
+          position: relative;
+          height: -webkit-fill-available;
           background: @gray;
           padding: @size-3;
           border-radius: @radius;
           text-align: center;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: center;
           .price {
             font-size: 1.2em;
             font-weight: bold;
+          }
+          .imgContainer {
+            height: 150px;
+            img {
+              height: 100%;
+            }
+          }
+          .list {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            .item {
+              text-align: start;
+              margin: @size 0;
+            }
+          }
+          .tag {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background: @white;
+            color: @gray;
+            font-weight: bold;
+            padding: @size;
+            border-radius: @size 0 0 0;
           }
         }
       }
