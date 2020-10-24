@@ -234,21 +234,21 @@ const Landing = () => {
 
 const PriceAndCta = ({ countryCode }) => {
   let planes = [
-    {
-      title: "Plan mensual",
-      price: "14$USD / mes",
-      img: "/img/luna.png",
-      list: [
-        "Sin límite de productos",
-        "Tienda online + PWA (aplicación móvil)",
-        "Actualizaciones y mejoras constantes",
-        "Hasta 2 líneas de Whatsapp",
-        "Dominio gratuito .netlify.app",
-      ],
-    },
+    // {
+    //   title: "Plan mensual",
+    //   price: "14$USD / mes",
+    //   img: "/img/luna.png",
+    //   list: [
+    //     "Sin límite de productos",
+    //     "Tienda online + PWA (aplicación móvil)",
+    //     "Actualizaciones y mejoras constantes",
+    //     "Hasta 2 líneas de Whatsapp",
+    //     "Dominio gratuito .netlify.app",
+    //   ],
+    // },
     {
       title: "Plan anual",
-      price: "125$USD / año",
+      price: "149$USD / año",
       img: "/img/asteroide.png",
       list: [
         "Todo lo del plan mensual",
@@ -258,7 +258,7 @@ const PriceAndCta = ({ countryCode }) => {
     },
     {
       title: "Plan permanente",
-      price: "187$USD",
+      price: "214$USD",
       img: "/img/sol.png",
       list: [
         "Todo lo del plan anual",
@@ -279,28 +279,31 @@ const PriceAndCta = ({ countryCode }) => {
           "Actualizaciones y mejoras constantes",
           "Hasta 2 líneas de Whatsapp",
           "Dominio gratuito .netlify.app",
+          "Costo de instalación 250Bs ",
         ],
       },
       {
         title: "Plan anual",
-        price: "873Bs / año",
-        tag: "Ahorra 25%",
+        price: "983Bs / año",
+        tag: "Ahorra 30%",
         img: "/img/asteroide.png",
         list: [
           "Todo lo del plan mensual",
           "Dominio .com .net .org etc (por un año)",
           "Hasta 5 líneas de Whatsapp",
+          "Sin costo de instalación",
         ],
       },
       {
         title: "Plan permanente",
-        price: "1309Bs",
+        price: "1499Bs",
         tag: "sin mensualidades",
         img: "/img/sol.png",
         list: [
           "Todo lo del plan anual",
           "Líneas de Whatsapp Ilimitadas",
           "Incluyen las actualizaciones y soporte técnico",
+          "Sin costo de instalación",
         ],
       },
     ];
