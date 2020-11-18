@@ -234,31 +234,32 @@ const Landing = () => {
 
 const PriceAndCta = ({ countryCode }) => {
   let planes = [
-    // {
-    //   title: "Plan mensual",
-    //   price: "14$USD / mes",
-    //   img: "/img/luna.png",
-    //   list: [
-    //     "Sin límite de productos",
-    //     "Tienda online + PWA (aplicación móvil)",
-    //     "Actualizaciones y mejoras constantes",
-    //     "Hasta 2 líneas de Whatsapp",
-    //     "Dominio gratuito .netlify.app",
-    //   ],
-    // },
+    {
+      title: "Plan mensual",
+      price: "22$USD / mes",
+      img: "/img/luna.png",
+      list: [
+        "Sin límite de productos",
+        "Tienda online + PWA (aplicación móvil)",
+        "Actualizaciones y mejoras constantes",
+        "Hasta 2 líneas de Whatsapp",
+        "Dominio gratuito .netlify.app",
+      ],
+    },
     {
       title: "Plan anual",
-      price: "149$USD / año",
+      price: "197$USD / año",
       img: "/img/asteroide.png",
       list: [
         "Todo lo del plan mensual",
         "Dominio .com .net .org etc (por un año)",
         "Hasta 5 líneas de Whatsapp",
+        "Incluyen las actualizaciones y soporte técnico",
       ],
     },
     {
       title: "Plan permanente",
-      price: "214$USD",
+      price: "347$USD",
       img: "/img/sol.png",
       list: [
         "Todo lo del plan anual",
