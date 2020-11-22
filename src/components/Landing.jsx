@@ -6,7 +6,9 @@ import { FaWhatsapp, FaPeopleCarry, FaAndroid } from "react-icons/fa";
 import { FiLoader } from "react-icons/fi";
 import { MdWeb } from "react-icons/md";
 import { GoPrimitiveDot } from "react-icons/go";
+
 import { GiPayMoney, GiHeartBottle } from "react-icons/gi";
+import { SiTiktok } from "react-icons/si";
 
 import publicIp from "public-ip";
 import axios from "axios";
@@ -81,12 +83,12 @@ const Landing = () => {
       description:
         "La mayoría de sitios web cargan lento, WhatShop es instantáneo y permite una navegación cómoda",
     },
-    {
-      icon: GiPayMoney,
-      title: "Económico",
-      description:
-        "Una tienda online de calidad se encuentra entre 400$ 600$ | Whatsapp Shop tiene la misma o mejor calidad, cuesta 14$ al mes",
-    },
+    // {
+    //   icon: GiPayMoney,
+    //   title: "Económico",
+    //   description:
+    //     "Una tienda online de calidad se encuentra entre 400$ 600$ | Whatsapp Shop tiene la misma o mejor calidad, cuesta 14$ al mes",
+    // },
     {
       icon: AiOutlineFieldTime,
       title: "Instalación rápida",
@@ -166,19 +168,28 @@ const Landing = () => {
               ReactPixel.track("ViewContent", { content_name: "demoVideo" })
             }
             className="youtubeDemo"
-            src="https://www.youtube.com/embed/3oxUqW8oClQ"
+            src="https://www.youtube.com/embed/6_Wt7L6KNQk"
             frameBorder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           ></iframe>
-          <h3>👆Demostración WhatShop👆</h3>
+          <br />
+
+          <h3>👆 Video explicativo ¯\_(ツ)_/¯ </h3>
         </div>
         <br />
         <div className="CTA">
-          <FormWhatsapp
-            classNameButton="cta btn-primary full-width"
-            text="Quiero que me expliquen"
-          />
+          <button
+            onClick={() => {
+              typeof window !== "undefined" &&
+                window.scrollTo(0, info.current.offsetTop);
+              ReactPixel.track("ViewContent", { content_name: "info" });
+            }}
+            className="btn-primary full-width"
+          >
+            Comprar un plan ( ͡° ͜ʖ ͡°)
+          </button>
+          <br />
           <button
             // href="#how"
             onClick={() => {
@@ -228,11 +239,19 @@ const Landing = () => {
         </div>
         <PriceAndCta countryCode={countryCode} />
       </div>
+      <a
+        href="https://www.tiktok.com/@whatshop.digital"
+        target="_blank"
+        className="tiktok"
+      >
+        <SiTiktok className="icon" />
+      </a>
     </div>
   );
 };
 
-const PriceAndCta = ({ countryCode }) => {
+const PriceAndCta = ({}) => {
+  const countryCode = "ASD";
   let planes = [
     {
       title: "Plan mensual",
@@ -245,27 +264,32 @@ const PriceAndCta = ({ countryCode }) => {
         "Hasta 2 líneas de Whatsapp",
         "Dominio gratuito .netlify.app",
       ],
+      href: "https://kleber.digital/productos/whatshop-suscripcion",
     },
     {
       title: "Plan anual",
       price: "197$USD / año",
       img: "/img/asteroide.png",
+      tag: "ahorra 25%",
       list: [
         "Todo lo del plan mensual",
         "Dominio .com .net .org etc (por un año)",
-        "Hasta 5 líneas de Whatsapp",
+        "Hasta 7 líneas de Whatsapp",
         "Incluyen las actualizaciones y soporte técnico",
       ],
+      href: "https://kleber.digital/productos/whatshop-suscripcion",
     },
     {
       title: "Plan permanente",
       price: "347$USD",
       img: "/img/sol.png",
+      tag: "sin mensualidades",
       list: [
         "Todo lo del plan anual",
         "Líneas de Whatsapp Ilimitadas",
         "Incluyen las actualizaciones y soporte técnico",
       ],
+      href: "https://kleber.digital/productos/whatshop",
     },
   ];
   if (countryCode == "BO") {
@@ -293,6 +317,7 @@ const PriceAndCta = ({ countryCode }) => {
           "Dominio .com .net .org etc (por un año)",
           "Hasta 5 líneas de Whatsapp",
           "Sin costo de instalación",
+          "Actualizaciones y mejoras constantes",
         ],
       },
       {
@@ -312,10 +337,13 @@ const PriceAndCta = ({ countryCode }) => {
   return (
     <>
       <div className="planes">
-        {planes.map(({ title, price, img, list, tag }, i) => {
+        {planes.map(({ title, price, img, list, tag, href }, i) => {
           return (
             <div className="plan" key={i}>
-              <div className="container">
+              <div
+                className="container"
+                style={{ paddingBottom: href ? 35 : "" }}
+              >
                 <div className="title">{title}</div>
 
                 <div className="price">{price}</div>
@@ -338,17 +366,30 @@ const PriceAndCta = ({ countryCode }) => {
                   text={`Quiero que me expliquen`}
                 />
               </div> */}
+                {href && (
+                  <a
+                    href={href}
+                    target="_blank"
+                    className="btn-primary "
+                    style={{ marginTop: "auto" }}
+                  >
+                    ⭐ Comprar Plan ~(˘▾˘~)
+                  </a>
+                )}
               </div>
             </div>
           );
         })}
       </div>
+      <br />
 
       <div className="CTA">
-        <FormWhatsapp
-          classNameButton="cta btn-primary full-width"
-          text={`Quiero que me expliquen`}
-        />
+        {countryCode == "BO" && (
+          <FormWhatsapp
+            classNameButton="cta btn-primary full-width"
+            text={`Quiero que me expliquen`}
+          />
+        )}
         <a
           target="_blank"
           className="full-width"

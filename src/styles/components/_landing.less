@@ -9,9 +9,9 @@
       border-radius: @radius;
       .youtubeDemo {
         min-width: 300px;
-        min-height: 300px;
+        min-height: 500px;
         width: 30vw;
-        height: 30vw;
+        height: 60vw;
         border-radius: @radius;
       }
     }
@@ -38,7 +38,8 @@
         border-radius: @radius;
         background: linear-gradient(to right, @turquesa 50%, @red 50%);
         margin: @size;
-        height: 425px;
+        height: 500px;
+
         .container {
           // height: 100%;
           position: relative;
@@ -51,6 +52,7 @@
           flex-direction: column;
           justify-content: flex-start;
           align-items: center;
+
           .price {
             font-size: 1.2em;
             font-weight: bold;
@@ -102,5 +104,22 @@
       }
       margin-bottom: @size-5;
     }
+  }
+}
+.tiktok {
+  position: fixed;
+  bottom: 8px;
+  right: 8px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  z-index: 3;
+  justify-content: center;
+  align-items: center;
+  border-radius: "50%";
+  .btn();
+  .icon {
+    font-size: 25px;
+    fill: @turquesa;
   }
 }
