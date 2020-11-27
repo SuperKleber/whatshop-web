@@ -250,8 +250,7 @@ const Landing = () => {
   );
 };
 
-const PriceAndCta = ({}) => {
-  const countryCode = "ASD";
+const PriceAndCta = ({ countryCode }) => {
   let planes = [
     {
       title: "Plan mensual",
