@@ -60,6 +60,7 @@ module.exports = {
         icon: `static/favicon/favicon.png`,
       },
     },
-    "gatsby-plugin-offline",
+    // "gatsby-plugin-offline",
+    "gatsby-plugin-remove-serviceworker",
   ],
 };
