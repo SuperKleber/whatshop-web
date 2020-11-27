@@ -404,7 +404,12 @@ const PriceAndCta = ({}) => {
         </a>
       </div>
       <div className="tos">
-        <Link to="/tos">Términos de uso</Link>
+        <Link to="/tos" style={{ fontSize: "0.7em" }}>
+          {" "}
+          Antes de adquirir el servicio lea <br /> los Términos de uso{" "}
+          <span style={{ color: "#00ffec" }}>click aquí</span>
+        </Link>
+
         <br />
         <br />
       </div>
