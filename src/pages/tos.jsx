@@ -180,6 +180,29 @@ const Tos = () => {
                 información revisar los "Términos externos" de este documento
               </li>
             </ul>
+            <ul
+              id="2c2c188f-a3bb-4fb7-8128-7319d2796531"
+              className="bulleted-list"
+            >
+              <li>
+                El afiliado acepta haber leído estos términos de uso antes de
+                adquir el servicio WhatShop
+              </li>
+            </ul>
+            <ul
+              id="2c2c188f-a3bb-4fb7-8128-7319d2796531"
+              className="bulleted-list"
+            >
+              <li>
+                El afiliado debe comunicar para qué utilizará el servicio
+                WhatShop y cuya veracidad es completamente responsabilidad del
+                afiliado, y da buena fé de usar el servicio respetando los
+                términos de Uso, en el caso de que el afiliado inflija estos
+                términos de uso kleber.digital se reserva el derecho de
+                suspender el servicio de WhatShop al afiliado sin derecho a
+                reembolso
+              </li>
+            </ul>
             <h2 id="25d628ee-46e3-4d61-a9c2-9908e79fffd6" className>
               Términos externos
             </h2>
@@ -287,6 +310,59 @@ const Tos = () => {
                 <a href="https://www.sanity.io/legal/tos">
                   https://www.sanity.io/legal/tos
                 </a>
+              </li>
+            </ul>
+            <h3 id="1285e697-6367-4ba7-992c-00fb867efad1" className>
+              Condiciones de Reembolso
+            </h3>
+            <p id="be3b311d-eb69-446b-b084-d22944d3b9e9" className>
+              Una vez hecho el depósito o transferencia monetaria del servicio
+              de WhatShop se tiene un plazo de 48 horas para solicitar un
+              reembolso
+            </p>
+            <ul
+              id="c465df34-1418-4b07-a122-9fe77c462c6a"
+              className="bulleted-list"
+            >
+              <li>
+                Se reembolsará en el caso de que el servicio WhatShop no
+                funcione
+              </li>
+            </ul>
+            <ul
+              id="4fb39c60-d89b-43e9-8eae-f74e63424f36"
+              className="bulleted-list"
+            >
+              <li>
+                Se reembolsará en el caso de que no se le haya comunicado
+                debidamente el funcionamiento de WhatShop
+              </li>
+            </ul>
+            <ul
+              id="4fb39c60-d89b-43e9-8eae-f74e63424f36"
+              className="bulleted-list"
+            >
+              <li>
+                Se reembolsará en el caso de estar dentro las 48 horas a partir
+                del primer pago que se haya realizado
+              </li>
+            </ul>
+            <ul
+              id="834b8eaa-dcaa-4a6e-8332-e7d52b06d354"
+              className="bulleted-list"
+            >
+              <li>
+                Sólo se reembolsa a los nuevos afiliados, es decir sólo el
+                primer pago, los pagos mensuales o anuales no son reembolsables
+              </li>
+            </ul>
+            <ul
+              id="2ed6a79e-2f87-4fc2-bdd0-0e772f875ec5"
+              className="bulleted-list"
+            >
+              <li>
+                En el caso de infrigir los términos de uso no hay ningún derecho
+                a reembolso
               </li>
             </ul>
             <p id="b56cd0fe-1e11-430f-88b4-878a7b6bf633" className></p>

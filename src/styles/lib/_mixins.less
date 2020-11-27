@@ -72,7 +72,18 @@
   justify-content: @jc;
   align-items: @ai;
 }
+.flat(){
+  background: @gray;
+  box-shadow: 2px 2px 6px darken(@gray, 15%),
+  -2px -2px 6px lighten(@gray, 15%);
+}
+.pressed(){
+  background: @gray;
+  box-shadow: inset 2px 2px 6px darken(@gray, 15%),
+  inset -2px -2px 6px lighten(@gray, 15%);
+}
 .btn(@background:@gray,@color: @white, @border-color: false) {
+  .flat();
   outline: none;
   text-transform: uppercase;
   font-family: @font;
@@ -87,18 +98,17 @@
   color: @color;
   transition: 0.2s;
   background: @background;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
   if(@border-color)
   // border: @size-1 solid @border-color;
-  box-shadow: 2px 2px 6px darken(@background, 15%),
-    -2px -2px 6px lighten(@background, 15%);
+
   .flex();
   &:hover {
     opacity: @opacity;
   }
   &:active {
     // transform: scale(0.95);
-    box-shadow: inset 2px 2px 6px darken(@background, 15%),
-      inset -2px -2px 6px lighten(@background, 15%);
+    .pressed()
   }
   & when (iscolor(@border-color)){
     border: @size-1 solid @border-color;

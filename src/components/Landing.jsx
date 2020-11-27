@@ -403,6 +403,11 @@ const PriceAndCta = ({}) => {
           </button>
         </a>
       </div>
+      <div className="tos">
+        <Link to="/tos">Términos de uso</Link>
+        <br />
+        <br />
+      </div>
     </>
   );
 };

@@ -4,13 +4,14 @@ import Helmet from "react-helmet";
 import ReactPixel from "react-facebook-pixel";
 import Seo from "./Seo";
 
-const Layout = ({ children, className, jivochat, seo }) => {
+const Layout = (props) => {
+  const { children, className, jivochat, seo } = props;
   useEffect(() => {
     ReactPixel.init("872956439898893");
     ReactPixel.pageView();
   }, []);
   return (
-    <div className={`Layout ${className && className}`}>
+    <div {...props} className={`Layout ${className && className}`}>
       <Seo {...seo} />
       <Helmet>
         <link
@@ -102,7 +103,7 @@ const Layout = ({ children, className, jivochat, seo }) => {
           <script src="//code.jivosite.com/widget/UrnZHwfJe0" async></script>
         )}
       </Helmet>
-      <div>{children}</div>
+      {children}
     </div>
   );
 };
