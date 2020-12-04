@@ -6,6 +6,7 @@ exports.createPages = async ({ graphql, actions }) => {
     {
       allSanitySales {
         nodes {
+          id
           email
           clientName
           businessName

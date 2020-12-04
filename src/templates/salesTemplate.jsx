@@ -17,6 +17,7 @@ const SalesTemplate = ({ pageContext }) => {
   const [endSale, setEndSale] = useState(false);
   const [startSale, setStartSale] = useState(true);
   const {
+    id,
     clientName,
     email,
     whatsapp,
@@ -25,6 +26,7 @@ const SalesTemplate = ({ pageContext }) => {
     startSaleDate,
     endSaleDate,
   } = pageContext.sale;
+
   const handleIntroActions = ({ playedSeconds }) => {
     if (accept) {
       if (playedSeconds > 600) {
@@ -34,7 +36,7 @@ const SalesTemplate = ({ pageContext }) => {
             (window.location && window.location.hostname) || false;
           if (hostname) {
             countapi
-              .hit(hostname, `${slug(clientName)}-controls`)
+              .hit(hostname, `${slug(`${id}-controls`)}`)
               .then((result) => {
                 console.log("controls:");
                 console.log(result);
@@ -51,7 +53,7 @@ const SalesTemplate = ({ pageContext }) => {
             (window.location && window.location.hostname) || false;
           if (hostname) {
             countapi
-              .hit(hostname, `${slug(clientName)}-action`)
+              .hit(hostname, `${slug(`${id}-action`)}`)
               .then((result) => {
                 console.log("action:");
                 console.log(result);
@@ -59,9 +61,6 @@ const SalesTemplate = ({ pageContext }) => {
               .catch((e) => console.log(e));
           }
         }
-      }
-      if (playedSeconds > 20) {
-        setShowActions(true);
       }
     } else {
       if (playedSeconds > 20) {
@@ -78,6 +77,18 @@ const SalesTemplate = ({ pageContext }) => {
       setPlay(!play);
     } else {
       setShowThumbnail(false);
+      if (typeof window !== "undefined") {
+        const hostname = (window.location && window.location.hostname) || false;
+        if (hostname) {
+          countapi
+            .hit(hostname, `${slug(`${id}-play`)}`)
+            .then((result) => {
+              console.log("Play:");
+              console.log(result);
+            })
+            .catch((e) => console.log(e));
+        }
+      }
     }
   };
   const startDate = new Date(`${startSaleDate}T00:00:01`);
@@ -103,14 +114,25 @@ const SalesTemplate = ({ pageContext }) => {
       const hostname = (window.location && window.location.hostname) || false;
       if (hostname) {
         countapi
-          .hit(hostname, slug(clientName))
+          .hit(hostname, slug(`${id}`))
           .then((result) => {
+            console.log("visitas:");
             console.log(result);
           })
           .catch((e) => console.log(e));
 
         countapi
-          .get(hostname, `${slug(clientName)}-controls`)
+          .get(hostname, `${slug(`${id}-play`)}`)
+          .then((result) => {
+            console.log("play:");
+            console.log(result);
+            if (result.value > 1) {
+              setControls(true);
+            }
+          })
+          .catch((e) => console.log(e));
+        countapi
+          .get(hostname, `${slug(`${id}-controls`)}`)
           .then((result) => {
             console.log("controls:");
             console.log(result);
@@ -120,7 +142,7 @@ const SalesTemplate = ({ pageContext }) => {
           })
           .catch((e) => console.log(e));
         countapi
-          .get(hostname, `${slug(clientName)}-action`)
+          .get(hostname, `${slug(`${id}-action`)}`)
           .then((result) => {
             console.log("accept:");
             console.log(result);
