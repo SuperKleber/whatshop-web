@@ -20,7 +20,9 @@ exports.createPages = async ({ graphql, actions }) => {
 
   result.data.allSanitySales.nodes.forEach((sale) => {
     createPage({
-      path: `/${slug(sale.clientName)}`,
+      path: `/${
+        sale.businessName ? slug(sale.businessName) : slug(sale.clientName)
+      }`,
       component: require.resolve("./src/templates/salesTemplate.jsx"),
       context: {
         sale,

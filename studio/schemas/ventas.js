@@ -10,6 +10,10 @@ export default {
       title: "Nombre del cliente",
       description: "El nombre del cliente",
       type: "string",
+      validation: (Rule) =>
+        Rule.required().error(
+          "Todos tenemos un nombre, pon uno porfis (•◡•) /"
+        ),
     },
     {
       name: "email",
@@ -17,9 +21,18 @@ export default {
       type: "string",
     },
     {
+      name: "country",
+      title: "País",
+      type: "string",
+    },
+    {
       name: "whatsapp",
       title: "Whatsapp del cliente",
       type: "number",
+      validation: (Rule) =>
+        Rule.required().error(
+          "Necesito poder contactar con el cliente (°ロ°)☝"
+        ),
     },
     {
       name: "businessName",
@@ -39,6 +52,10 @@ export default {
       options: {
         dateFormat: "DD/MM/YYYY",
       },
+      validation: (Rule) =>
+        Rule.required().error(
+          "(~˘▾˘)~ Toda historia necesita un comienzo, pon una fecha"
+        ),
     },
     {
       name: "endSaleDate",
@@ -47,6 +64,10 @@ export default {
       options: {
         dateFormat: "DD/MM/YYYY",
       },
+      validation: (Rule) =>
+        Rule.required().error(
+          "Toda historia tiene un final, pon una fecha ~(˘▾˘~)"
+        ),
     },
   ],
 };

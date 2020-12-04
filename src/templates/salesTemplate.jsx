@@ -7,6 +7,7 @@ import Countdown from "react-countdown";
 import whatsappApi from "../../lib/whatsappApi";
 import slug from "../../lib/slug";
 import countapi from "countapi-js";
+import { Link } from "gatsby";
 const SalesTemplate = ({ pageContext }) => {
   const [play, setPlay] = useState(true);
   const [showThumbnail, setShowThumbnail] = useState(true);
@@ -14,6 +15,7 @@ const SalesTemplate = ({ pageContext }) => {
   const [accept, setAccept] = useState(false);
   const [controls, setControls] = useState(false);
   const [endSale, setEndSale] = useState(false);
+  const [startSale, setStartSale] = useState(true);
   const {
     clientName,
     email,
@@ -78,6 +80,24 @@ const SalesTemplate = ({ pageContext }) => {
       setShowThumbnail(false);
     }
   };
+  const startDate = new Date(`${startSaleDate}T00:00:01`);
+  const getDay = startDate.getDay();
+  const day =
+    getDay == 1
+      ? "Lunes"
+      : getDay == 2
+      ? "Martes"
+      : getDay == 3
+      ? "Miércoles"
+      : getDay == 4
+      ? "Jueves"
+      : getDay == 5
+      ? "Viernes"
+      : getDay == 6
+      ? "Sábado"
+      : getDay == 7
+      ? "Domingo"
+      : "El día indicado";
   useEffect(() => {
     if (typeof window !== "undefined") {
       const hostname = (window.location && window.location.hostname) || false;
@@ -113,6 +133,12 @@ const SalesTemplate = ({ pageContext }) => {
           })
           .catch((e) => console.log(e));
       }
+
+      // startDate
+
+      if (startDate.getTime() > Date.now()) {
+        setStartSale(false);
+      }
     }
   }, []);
   return (
@@ -128,52 +154,88 @@ const SalesTemplate = ({ pageContext }) => {
         <div className="bg bg2"></div>
         <div className="bg bg3"></div>
         <div className="content">
-          {!showThumbnail && (
-            <div className="detail">
-              Dedicado especialmente para {clientName}
+          {startSale ? (
+            <>
+              {!showThumbnail && (
+                <div className="detail">
+                  Dedicado especialmente para {clientName}
+                </div>
+              )}
+              <Wrapper
+                onClick={handlePlay}
+                play={!showThumbnail ? play : showThumbnail}
+              >
+                {accept ? (
+                  <ReactPlayer
+                    className="videoPlayer"
+                    url="https://res.cloudinary.com/https-whatshop-digital/video/upload/v1607077790/whatshop-video-venta-convert_tggfqj.mp4"
+                    // url="/video/whatshop-video-venta.mp4"
+                    id="video"
+                    playing={play}
+                    loop
+                    // playIcon={<Thumbnail {...pageContext.sale} />}
+                    // light={true}
+                    onProgress={handleIntroActions}
+                    controls={controls}
+                  />
+                ) : (
+                  <ReactPlayer
+                    className="videoPlayer"
+                    url="https://res.cloudinary.com/https-whatshop-digital/video/upload/v1607076652/intro_thdst3.mp4"
+                    // url="/video/intro.mp4"
+                    id="video"
+                    playing={play}
+                    loop
+                    playIcon={<Thumbnail {...pageContext.sale} />}
+                    light={true}
+                    onProgress={handleIntroActions}
+                    controls={controls}
+                  />
+                )}
+              </Wrapper>
+              <br />
+              {!showThumbnail && showActions && (
+                <Actions
+                  toAccept={toAccept}
+                  accept={accept}
+                  endSaleDate={endSaleDate}
+                  endSale={endSale}
+                  setEndSale={setEndSale}
+                />
+              )}
+            </>
+          ) : (
+            <div className="noStartSale">
+              <div>
+                <div className="title">Presentación aún disponible</div>
+                <div className="emoji">¯\_(ツ)_/¯</div>
+                <div className="body">
+                  Vuelve el {day}{" "}
+                  {`${startDate.getDate()}/${
+                    startDate.getMonth() + 1
+                  }/${startDate.getFullYear()}`}
+                </div>
+              </div>
+              <br />
+              <div>
+                <div className="detail">
+                  {clientName} También estamos entusiasmados por esta
+                  presentación si dispones de 1 hora de tu tiempo hoy podemos
+                  reagendar la video-presentación para hoy mismo
+                </div>
+                <br />
+                <a
+                  href={whatsappApi(
+                    59175591674,
+                    "Quiero reagendar la video presentación para hoy"
+                  )}
+                  target="_blank"
+                  className="btn"
+                >
+                  Reagendar para hoy
+                </a>
+              </div>
             </div>
-          )}
-          <Wrapper
-            onClick={handlePlay}
-            play={!showThumbnail ? play : showThumbnail}
-          >
-            {accept ? (
-              <ReactPlayer
-                className="videoPlayer"
-                url="https://res.cloudinary.com/https-whatshop-digital/video/upload/v1607077790/whatshop-video-venta-convert_tggfqj.mp4"
-                // url="/video/whatshop-video-venta.mp4"
-                id="video"
-                playing={play}
-                loop
-                // playIcon={<Thumbnail {...pageContext.sale} />}
-                // light={true}
-                onProgress={handleIntroActions}
-                controls={controls}
-              />
-            ) : (
-              <ReactPlayer
-                className="videoPlayer"
-                url="https://res.cloudinary.com/https-whatshop-digital/video/upload/v1607076652/intro_thdst3.mp4"
-                // url="/video/intro.mp4"
-                id="video"
-                playing={play}
-                loop
-                playIcon={<Thumbnail {...pageContext.sale} />}
-                light={true}
-                onProgress={handleIntroActions}
-                controls={controls}
-              />
-            )}
-          </Wrapper>
-          <br />
-          {!showThumbnail && showActions && (
-            <Actions
-              toAccept={toAccept}
-              accept={accept}
-              endSaleDate={endSaleDate}
-              endSale={endSale}
-              setEndSale={setEndSale}
-            />
           )}
         </div>
       </div>
@@ -331,7 +393,7 @@ const Actions = ({ toAccept, accept, endSaleDate, setEndSale, endSale }) => {
         target="_blank"
         className="btn"
       >
-        Reagendar reunión
+        Reagendar
       </a>
       <button onClick={toAccept} className="btn-primary">
         Ver ahora
