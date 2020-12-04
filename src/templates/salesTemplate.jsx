@@ -116,7 +116,13 @@ const SalesTemplate = ({ pageContext }) => {
     }
   }, []);
   return (
-    <Layout className="salePage">
+    <Layout
+      seo={{
+        title: `${businessName} + WhatShop ⭐`,
+        description: `Dedicado especialmente para ${clientName} ❤️`,
+      }}
+      className="salePage"
+    >
       <div className="container">
         <div className="bg"></div>
         <div className="bg bg2"></div>
