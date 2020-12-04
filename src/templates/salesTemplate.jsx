@@ -144,7 +144,7 @@ const SalesTemplate = ({ pageContext }) => {
   return (
     <Layout
       seo={{
-        title: `${businessName} + WhatShop ⭐`,
+        title: `${businessName || clientName} + WhatShop ⭐`,
         description: `Dedicado especialmente para ${clientName} ❤️`,
       }}
       className="salePage"
@@ -284,7 +284,7 @@ const Thumbnail = ({
         <p className="body">
           Soy Kleber.digital creador de <strong>WhatShop</strong> y quiero
           mostrarte un video para explicarte cómo WhatShop puede ser útil para
-          tu negocio {businessName}
+          tu negocio {businessName || ""}
         </p>
       </div>
       <br />
