@@ -211,7 +211,7 @@ const Thumbnail = ({
           width={100}
           height={100}
           className="videoFace"
-          url="https://res.cloudinary.com/https-whatshop-digital/video/upload/c_scale,q_48,w_100/v1607076648/face_gb9wia.mp4"
+          url="https://res.cloudinary.com/https-whatshop-digital/video/upload/c_scale,h_176/v1607076648/face_gb9wia.mp4"
           // url="/video/face.mp4"
           playing
           muted
