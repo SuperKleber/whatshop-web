@@ -4,7 +4,7 @@
     .viewPort();
 
     .bg {
-      animation: slide 3s ease-in-out infinite alternate;
+      animation: slide 3s ease-in-out 10 alternate;
       background-image: linear-gradient(-60deg, @gray 50%, @turquesa 50%);
       bottom: 0;
       left: -50%;
@@ -35,7 +35,8 @@
     .content {
       .flat();
       flex-direction: column;
-
+      padding: @size-4;
+      border-radius: @radius;
       box-sizing: border-box;
       left: 50%;
       position: fixed;
@@ -52,12 +53,12 @@
       }
       .wrapper {
         position: relative;
-
-        width: 500px;
-        height: 500px;
+        cursor: pointer;
+        width: 450px;
+        // height: 450px;
         @media (max-width: @mobile) {
           width: 300px;
-          height: 300px;
+          // height: 300px;
         }
         .playButton {
           position: absolute;
@@ -73,9 +74,31 @@
       }
       .actions {
         .flex();
+        .enter();
         justify-content: space-between;
         width: 100%;
         height: 10%;
+      }
+      .accept {
+        // .flat();
+        // padding: @size-2;
+        .buttons {
+          .flex();
+          flex-direction: column;
+          justify-content: space-between;
+          .btn {
+            width: 100%;
+            margin: 8px 0;
+          }
+        }
+        .countdownContainer {
+          // .pressed();
+          padding: 4px 0;
+          .countdown {
+            font-weight: bold;
+            font-size: 1.7em;
+          }
+        }
       }
     }
   }

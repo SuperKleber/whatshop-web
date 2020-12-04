@@ -5,3 +5,4 @@ public
 .env*
 .env.production
 .env.development
+static/video

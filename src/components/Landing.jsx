@@ -22,7 +22,7 @@ import { MdSettings } from "react-icons/md";
 import { RiFacebookCircleLine } from "react-icons/ri";
 import { Link } from "gatsby";
 import FormWhatsapp from "./FormWhatsapp";
-
+import countapi from "countapi-js";
 const Landing = () => {
   const slides = [
     {
@@ -155,6 +155,18 @@ const Landing = () => {
       .catch((error) => {
         console.log(error);
       });
+
+    if (typeof window !== "undefined") {
+      const hostname = (window.location && window.location.hostname) || false;
+      if (hostname) {
+        countapi
+          .visits(hostname)
+          .then((result) => {
+            console.log(result);
+          })
+          .catch((e) => console.log(e));
+      }
+    }
   }, []);
   return (
     <div>

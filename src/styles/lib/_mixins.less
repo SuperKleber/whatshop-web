@@ -72,18 +72,18 @@
   justify-content: @jc;
   align-items: @ai;
 }
-.flat(){
-  background: @gray;
-  box-shadow: 2px 2px 6px darken(@gray, 15%),
-  -2px -2px 6px lighten(@gray, 15%);
+.flat(@color: @gray){
+  background: @color;
+  box-shadow: 4px 4px 9px darken(@color, 20%),
+  -4px -4px 9px lighten(@color, 20%);
 }
-.pressed(){
-  background: @gray;
-  box-shadow: inset 2px 2px 6px darken(@gray, 15%),
-  inset -2px -2px 6px lighten(@gray, 15%);
+.pressed(@color: @gray){
+  background: @color;
+  box-shadow: inset 4px 4px 9px darken(@color, 20%),
+  inset -4px -4px 9px lighten(@color, 20%);
 }
 .btn(@background:@gray,@color: @white, @border-color: false) {
-  .flat();
+  .flat(@background);
   outline: none;
   text-transform: uppercase;
   font-family: @font;
@@ -108,7 +108,7 @@
   }
   &:active {
     // transform: scale(0.95);
-    .pressed()
+    .pressed(@background)
   }
   & when (iscolor(@border-color)){
     border: @size-1 solid @border-color;

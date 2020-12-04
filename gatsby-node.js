@@ -1,30 +1,30 @@
-// const slug = require("./lib/slug");
-// exports.createPages = async ({ graphql, actions }) => {
-//   const { createPage } = actions;
+const slug = require("./lib/slug");
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions;
 
-//   const result = await graphql(`
-//     {
-//       allSanitySales {
-//         nodes {
-//           email
-//           clientName
-//           businessName
-//           businessDescription
-//           endSaleDate(formatString: "DD/MM/YYYY")
-//           startSaleDate(formatString: "DD/MM/YYYY")
-//           whatsapp
-//         }
-//       }
-//     }
-//   `);
+  const result = await graphql(`
+    {
+      allSanitySales {
+        nodes {
+          email
+          clientName
+          businessName
+          businessDescription
+          endSaleDate
+          startSaleDate
+          whatsapp
+        }
+      }
+    }
+  `);
 
-//   result.data.allSanitySales.nodes.forEach((sale) => {
-//     createPage({
-//       path: `/${slug(sale.clientName)}`,
-//       component: require.resolve("./src/templates/salesTemplate.jsx"),
-//       context: {
-//         sale,
-//       },
-//     });
-//   });
-// };
+  result.data.allSanitySales.nodes.forEach((sale) => {
+    createPage({
+      path: `/${slug(sale.clientName)}`,
+      component: require.resolve("./src/templates/salesTemplate.jsx"),
+      context: {
+        sale,
+      },
+    });
+  });
+};
