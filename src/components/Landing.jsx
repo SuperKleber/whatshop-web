@@ -313,7 +313,7 @@ const PriceAndCta = ({ countryCode }) => {
     planes = [
       {
         title: "Plan mensual",
-        price: "97Bs / mes",
+        price: "154Bs / mes",
         img: "/img/luna.png",
         list: [
           "Sin límite de productos",
@@ -321,32 +321,29 @@ const PriceAndCta = ({ countryCode }) => {
           "Actualizaciones y mejoras constantes",
           "Hasta 2 líneas de Whatsapp",
           "Dominio gratuito .netlify.app",
-          "Costo de instalación 250Bs ",
         ],
       },
       {
         title: "Plan anual",
-        price: "983Bs / año",
-        tag: "Ahorra 30%",
+        price: "1358Bs / año",
+        tag: "Ahorra 25%",
         img: "/img/asteroide.png",
         list: [
           "Todo lo del plan mensual",
           "Dominio .com .net .org etc (por un año)",
           "Hasta 5 líneas de Whatsapp",
-          "Sin costo de instalación",
           "Actualizaciones y mejoras constantes",
         ],
       },
       {
         title: "Plan permanente",
-        price: "1499Bs",
+        price: "2392Bs",
         tag: "sin mensualidades",
         img: "/img/sol.png",
         list: [
           "Todo lo del plan anual",
           "Líneas de Whatsapp Ilimitadas",
           "Incluyen las actualizaciones y soporte técnico",
-          "Sin costo de instalación",
         ],
       },
     ];
