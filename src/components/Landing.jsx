@@ -180,29 +180,35 @@ const Landing = () => {
               ReactPixel.track("ViewContent", { content_name: "demoVideo" })
             }
             className="youtubeDemo"
-            src="https://www.youtube.com/embed/6_Wt7L6KNQk"
+            src="https://www.youtube.com/embed/zYOztd2ci1k"
             frameBorder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           ></iframe>
           <br />
 
-          <h3>👆 Video explicativo ¯\_(ツ)_/¯ </h3>
+          <h3>👆 Video explicativo </h3>
         </div>
         <br />
         <div className="CTA">
-          <button
-            onClick={() => {
-              typeof window !== "undefined" &&
-                window.scrollTo(0, info.current.offsetTop);
-              ReactPixel.track("ViewContent", { content_name: "info" });
-            }}
-            className="btn-primary full-width"
-          >
-            Comprar un plan ( ͡° ͜ʖ ͡°)
-          </button>
+          <FormWhatsapp
+            classNameButton="cta btn-primary full-width"
+            text={`Quiero que me expliquen`}
+          />
           <br />
-          <button
+          <a
+            target="_blank"
+            className="full-width"
+            onClick={() => {
+              ReactPixel.track("ViewContent", { content_name: "demoExample" });
+            }}
+            href="https://whatshop-muestra.netlify.app/"
+          >
+            <button className=" btn-secondary full-width">
+              Demo ejemplo de un WhatShop
+            </button>
+          </a>
+          {/* <button
             // href="#how"
             onClick={() => {
               typeof window !== "undefined" &&
@@ -213,7 +219,7 @@ const Landing = () => {
             className="btn-secondary full-width"
           >
             ¿Cómo funciona?
-          </button>
+          </button> */}
         </div>
       </div>
       <div className="View" id="how" ref={how}>
@@ -372,11 +378,11 @@ const PriceAndCta = ({ countryCode }) => {
                 </ul>
                 {tag && <div className="tag">{tag}</div>}
                 {/* <div className="cta">
-                <FormWhatsapp
-                  classNameButton="cta btn-primary full-width"
-                  text={`Quiero que me expliquen`}
-                />
-              </div> */}
+                  <FormWhatsapp
+                    classNameButton="cta btn-primary full-width"
+                    text={`Quiero que me expliquen`}
+                  />
+                </div> */}
                 {href && (
                   <a
                     href={href}
@@ -395,12 +401,16 @@ const PriceAndCta = ({ countryCode }) => {
       <br />
 
       <div className="CTA">
-        {countryCode == "BO" && (
+        {/* {countryCode == "BO" && (
           <FormWhatsapp
             classNameButton="cta btn-primary full-width"
             text={`Quiero que me expliquen`}
           />
-        )}
+        )} */}
+        <FormWhatsapp
+          classNameButton="cta btn-primary full-width"
+          text={`Quiero que me expliquen`}
+        />
         <a
           target="_blank"
           className="full-width"
